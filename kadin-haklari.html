@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <title>İHDD</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        main {
+            padding: 20px;
+            margin: 20px;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            color: black;
+            /* Üzerine gelindiğinde siyah yap */
+        }
+
+        .section-card {
+            margin-top: 2rem;
+
+        }
+
+        .social-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            position: relative;
+            gap: 8px;
+            text-decoration: none;
+            color: inherit;
+            font-size: 24px;
+            transition: all 0.3s ease-in-out;
+            padding: 8px;
+        }
+
+        .social-text {
+            position: absolute;
+            left: -120px;
+            /* Başlangıçta gizli */
+            opacity: 0;
+            visibility: hidden;
+            white-space: nowrap;
+            background: #f8f9fa;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .social-link:hover .social-text {
+            opacity: 1;
+            visibility: visible;
+            left: -100px;
+            /* Yazının sola doğru açılması */
+        }
+
+        .social-link:hover {
+            margin-left: 80px;
+            /* Hover sırasında ikonun sağa kayması */
+        }
+
+        .social-link i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-link:hover i {
+            transform: scale(1.2);
+            /* İkonu büyütme efekti */
+        }
+
+        .bagisYap:hover {
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            /* Gölgelendirme efekti */
+            transform: translateY(-2px);
+            /* Hafif yukarı hareket */
+            transition: all 0.3s ease;
+            /* Geçiş animasyonu */
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            /* Hafif yuvarlak köşeler */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            /* Genişliği tam yap */
+            height: auto;
+            /* Yükseklik içeriğe göre ayarlanır */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            /* Üst ve alt boşluk ekle */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            /* Hafif yukarı hareket */
+            transition: all 0.3s ease;
+            /* Geçiş animasyonu */
+        }
+
+        h2 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .card i {
+            font-size: 30px;
+        }
+
+        body.dark-mode {
+            background-color: #030e2b;
+            /* Koyu mod arka plan */
+            color: beige;
+            /* Koyu mod metin rengi */
+        }
+
+        .dark-mode .navbar {
+            background-color: #00091f !important;
+            /* Koyu arka plan */
+        }
+
+        .dark-mode .navbar-brand,
+        .dark-mode .navbar-nav .nav-link {
+            color: white !important;
+            /* Yazıları beyaz yap */
+        }
+
+        .dark-mode .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important;
+            /* Hover'da da beyaz kalsın */
+        }
+
+        .dark-mode .modal-content {
+            background-color: #343a40;
+            color: #000;
+        }
+
+        .dark-mode .modal-title {
+            color: palevioletred !important;
+        }
+
+        .dark-mode .modal-body {
+            color: #000;
+        }
+
+        .dark-mode .modal-body h2,
+        .dark-mode .modal-body p,
+        .dark-mode .modal-body label {
+            color: #000;
+        }
+
+        .dark-mode .modal-header .btn-close {
+            /* Koyu modda kapatma ikonu */
+            filter: invert(1);
+            /* İkon rengini ters çevir */
+        }
+
+        .dark-mode .social-text,
+        /* Sosyal medya metin kutuları */
+        .dark-mode .footer-card {
+            background-color: #343a40;
+            /* Koyu modda arka plan rengini ayarla */
+            color: #f8f9fa;
+            /* Koyu modda metin rengini ayarla */
+        }
+
+        .dark-mode footer {
+            background-color: #00091f;
+        }
+
+        .dark-mode .btn-outline-dark {
+            color: #f8f9fa;
+            border-color: #f8f9fa;
+        }
+
+        .dark-mode .btn-outline-dark:hover {
+            background-color: #f8f9fa;
+            color: #00091f;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 80%;
+                /* Mobilde genişliği ayarlayın */
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .display-4 {
+                font-size: 2.5rem;
+            }
+
+            .lead {
+                font-size: 1rem;
+            }
+
+            .card-body {
+                padding: 1.5rem !important;
+            }
+
+            .navbar {
+                background-color: #ffffff !important; /* Arka planı beyaz yap */
+                width: 100% !important;
+                border-radius: 0 !important;
+                padding: 10px !important;
+            }
+
+            .navbar-brand img {
+                width: 60px !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            main {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .display-4 {
+                font-size: 2rem;
+            }
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .card h3 {
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel-item {
+            position: relative;
+            height: 100vh; /* Tüm ekran yüksekliğini kaplasın */
+        }
+
+        .carousel-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi sığdır ve kırp */
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item img {
+                object-fit: contain; /* Mobilde resmi sığdır */
+            }
+        }
+
+        /* Mobil uyumluluk için medya sorguları */
+        @media (max-width: 768px) {
+
+            /* Navbar düzenlemeleri */
+            .navbar {
+                width: 100% !important;
+                border-radius: 0 !important;
+                padding: 10px !important;
+            }
+
+            .navbar-brand img {
+                width: 60px !important;
+            }
+
+            /* Card container düzenlemeleri */
+            .card-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .card {
+                width: 100% !important;
+                margin-bottom: 20px;
+            }
+
+            /* Slider düzenlemeleri */
+            .carousel-item {
+                position: relative;
+                /* İçeriği ortalamak için */
+                height: 100%;
+                /* Tüm alanı kaplaması için */
+            }
+
+            .carousel-item img {
+                object-fit: contain;
+            }
+
+            .carousel-caption {
+                display: none !important;
+            }
+
+            /* Footer düzenlemeleri */
+            footer .col-md-4 {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            footer h5 {
+                padding-left: 0 !important;
+            }
+
+            .footer-card {
+                margin: 0 auto;
+            }
+
+            .social-container {
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .social-link:hover {
+                margin-left: 0;
+            }
+
+            .social-text {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            /* Daha küçük ekranlar için ek düzenlemeler */
+            main {
+                padding: 10px;
+                margin: 10px;
+                margin-top: 80px;
+            }
+
+            .navbar-brand span {
+                font-size: 1rem;
+            }
+
+            .bagisYap {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            #darkModeToggle {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            /* Footer düzenlemeleri */
+            footer {
+                text-align: center;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+
+            .social-container {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Tablet için düzenlemeler */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .card {
+                width: 45% !important;
+            }
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .col-md-3 .fa-brands {
+            color: black;
+            /* İkonların rengini siyah yap */
+        }
+
+        @media (max-width: 768px) {
+            .col-md-3 {
+                text-align: center;
+                /* İkonları ortala */
+                margin-bottom: 20px;
+                /* Alt boşluk ekle */
+            }
+
+            .col-md-3 .fa-brands {
+                display: block;
+                /* İkonları alt alta diz */
+                margin: 10px auto;
+                /* Ortala ve aralarına boşluk ekle */
+            }
+        }
+
+        .dark-mode .navbar-brand span {
+            color: white !important; /* Yazıyı beyaz yap */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+        <nav id="navbar" class="navbar navbar-expand-lg shadow-lg mx-auto"
+            style="background-color: transparent; transition: all 0.3s ease; top: 10px; width: 94%; z-index: 1000; position: fixed; left: 50%; transform: translateX(-50%); border-radius: 4rem;">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="image/logo.png" style="width: 80px; margin-right: 10px;" alt="İHDD" title="İHDD">
+                    <span style="font-size: 1.2rem; font-weight: bold;">IHDD</span>
+                </a>
+
+                <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center" style="font-size: larger;">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" style="padding: 10px 15px;">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hakkimizda.html" style="padding: 10px 15px;">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="padding: 10px 15px;">
+                                İnsan Hakları
+                            </a>
+                            <ul class="dropdown-menu shadow-lg rounded">
+                                <li><a class="dropdown-item" href="kadin-haklari.html">Kadın Hakları</a></li>
+                                <li><a class="dropdown-item" href="cocuk-haklari.html">Çocuk Hakları</a></li>
+                                <li><a class="dropdown-item" href="yasam-hakki.html">Yaşama Hakkı</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html" style="padding: 10px 15px;">İletişim</a>
+                        </li>
+                    </ul>
+
+                    <button type="button" style="background-color: rgb(1, 92, 1); border: none;"
+                        class="btn btn-dark out rounded-pill shadow-sm px-4 py-2 me-3 bagisYap" data-bs-toggle="modal"
+                        data-bs-target="#donationModal">
+                        <strong><i class="fas fa-heart me-2"></i>BAĞIŞ YAP</strong>
+                    </button>
+                    <button id="darkModeToggle" class="btn btn-outline-dark border-0">
+                        <i id="darkModeIcon" class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Bağış Yap -->
+        <section>
+            <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content"
+                        style="background-image: url('image/el-isareti.jpeg'); background-repeat: no-repeat; background-position: left; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="donationModalLabel"
+                                style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: palevioletred;">Minik
+                                Dokunuşlar Büyük Etkiler Yaratabilir!
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: center;">Bağış
+                                Formu</h2>
+                            <div class="container">
+                                <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Bağış yapmak için lütfen
+                                    formu doldurun veya seçiminizi yapın.</p>
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" id="adsoyad" name="adsoyad" class="form-control"
+                                            placeholder="Ad - Soyad:" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            placeholder="E-posta:" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="miktar" class="form-label">Bağış Miktarı:</label>
+                                        <select id="miktar" name="miktar" class="form-select">
+                                            <option value="20">20 TL</option>
+                                            <option value="50">50 TL</option>
+                                            <option value="100">100 TL</option>
+                                            <option value="diger">Diğer</option>
+                                        </select>
+                                        <input type="number" id="digerMiktar" name="digerMiktar" class="form-control"
+                                            placeholder="Diğer miktar girin">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="odemeYontemi" class="form-label">Ödeme Yöntemi:</label>
+                                        <select id="odemeYontemi" name="odemeYontemi" class="form-select">
+                                            <option value="krediKarti">Kredi Kartı</option>
+                                            <option value="bankaKarti">Banka Kartı</option>
+                                            <option value="havale">Havale/EFT</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="bagisAmaci" class="form-label">Bağış Amacı:</label>
+                                        <select id="bagisAmaci" name="bagisAmaci" class="form-select">
+                                            <option value="egitim">Eğitim</option>
+                                            <option value="saglik">Sağlık</option>
+                                            <option value="insanHaklari">İnsan Hakları</option>
+                                            <option value="diger">Diğer</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" id="gizlilik" name="gizlilik" class="form-check-input"
+                                            required>
+                                        <label class="form-check-label" for="gizlilik">Kişisel verilerimin gizliliğini
+                                            onaylıyorum.</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">Bağışı Tamamla</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cardlar -->
+        <section style="margin-top: 8rem;">
+            <div class="card-container" style="display: flex; gap: 20px; align-items: flex-start;">
+                <div class="card"
+                    style="width: 300px; height: 400px; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;">
+                    <img src="image/yeter.png" alt=""
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.7rem;">
+                    <a href="https://anitsayac.com/" target="_blank"
+                        style="position: absolute; padding-top: 20rem; color: black; text-decoration: none;">Anıt
+                        Sayacı</a>
+                </div>
+                <div class="card" style="flex: 1; padding: 2rem; margin-top: 3rem; background-color:#7e6595;">
+                    <h2 style="font-family:'Times New Roman', Times, serif; color:#e2e2e2;"><em><b>Kadın Hakları
+                                Nedir?</b></em></h2>
+                    <p
+                        style="margin-top: 1rem; text-align: start; font-size:large; color: #e2e2e2; font-family:Verdana, Geneva, Tahoma, sans-serif;">
+                        Kadın hakları, kadınların toplumsal, ekonomik, siyasi ve yasal alanlarda erkeklerle eşit haklara
+                        sahip olmasını savunan ve bu hakların korunmasını amaçlayan bir kavramdır. Kadın hakları,
+                        tarihsel süreçte kadınların maruz kaldığı ayrımcılık, eşitsizlik ve baskıya karşı mücadele eden
+                        bir hareketin sonucu olarak ortaya çıkmıştır. Kadın hakları, sadece kadınlar için değil,
+                        toplumun tüm kesimleri için adalet, eşitlik ve refah anlamına gelir. Bu nedenle, kadın hakları
+                        mücadelesi, herkesin sorumluluk alması gereken bir konudur.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <section style="display: flex; justify-content: center;">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" style="width: 80%;">
+                <div class="carousel-inner" style="height: 425px;">
+                    <div class="carousel-item active" style="height: 100%;">
+                        <img src="image/metoo (2).jpg" class="d-block w-100" alt="..."
+                            style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="image/mahsamini.jpg" class="d-block w-100" alt="..."
+                            style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="image/afganistan.jpg" class="d-block w-100" alt="..."
+                            style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="image/greta.jpg" class="d-block w-100" alt="..."
+                            style="height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <br>
+        <br>
+        <section>
+            <div
+                style="background-color:#e4e5f1; width: 100%; height: 350px; display: flex; justify-content: center; align-items: center;">
+                <div class="accordion accordion-flush" id="accordionFlushExample" style="width: 100%; max-width: 98%;">
+                    <h1
+                        style="color: #7b76b0; font-size: 30px; font-weight: bold;text-align: center; font-family:'Times New Roman', Times, serif">
+                        <em> Kadın Cinayetlerinin Önlenmesine Yönelik Çalışmalar</em>
+                    </h1>
+                    <br>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne" style="background-color: #f8f9fa; color: #000;">
+                                İstanbul Sözleşmesi Tartışmaları:
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body" style="background-color: #fff; color: #000;">
+                                Türkiye, 2021 yılında İstanbul Sözleşmesi'nden çekildi. Bu sözleşme, kadına yönelik
+                                şiddetle mücadelede önemli bir araç olarak görülüyordu. Sözleşmeden çekilme, kadın
+                                cinayetlerinin önlenmesine yönelik çalışmaları olumsuz etkiledi.Çekilme sonrası
+                                Türkiye'de kadın cinayetleri ve kadına yönelik şiddetle ilgili endişeler arttı. Ancak
+                                yetkililer, 6284 sayılı Ailenin Korunması ve Kadına Karşı Şiddetin Önlenmesine Dair
+                                Kanun'un hala yürürlükte olduğunu ve kadın haklarının korunmaya devam edeceğini
+                                belirtti.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo" style="background-color: #f8f9fa; color: #000;">
+                                6284 Sayılı Kanun:
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body" style="background-color: #fff; color: #000;">
+                                Türkiye'de kadına yönelik şiddetle mücadele için 6284 sayılı kanun uygulanmaktadır. Bu
+                                kanun, kadınların korunması ve şiddetin önlenmesi için önemli bir yasal çerçeve sunuyor.
+                                Ancak, uygulamada eksiklikler ve aksaklıklar yaşanabiliyor.Bu yasa, özellikle kadınlar,
+                                çocuklar, aile bireyleri ve şiddete uğrama riski taşıyan kişileri korumayı hedefler.
+                                Şiddetin her türüne karşı alınacak önlemleri belirler ve mağdurlara destek sağlar.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree" style="background-color: #f8f9fa; color: #000;">
+                                Kadın Örgütlerinin Mücadelesi:
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body" style="background-color: #fff; color: #000;">
+                                İnsan Hakları Dayanışma Derneği(İHDD) ve Mor Çatı Kadın Sığınağı Vakfı gibi örgütler,
+                                kadına yönelik şiddet ve cinayetlerle ilgili farkındalık yaratıyor, hukuki süreçleri
+                                takip ediyor ve mağdurlara destek veriyor. Bu örgütler, kadınların sesini duyurmak için
+                                mücadelelerini sürdürüyor.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-sm-4 mb-3">
+                    <div class="card" style="border-radius: 50%; overflow: hidden; width: 300px; height: 300px;">
+                        <div class="card-body p-0">
+                            <img src="image/isaret.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="card" style="border-radius: 50%; overflow: hidden; width: 300px; height: 300px;">
+                        <div class="card-body p-0">
+                            <img src="image/isaret1.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="card" style="border-radius: 50%; overflow: hidden; width: 300px; height: 300px;">
+                        <div class="card-body p-0">
+                            <img src="image/isaret2.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <!-- place footer here -->
+    <footer style="background-color: #e3edef; color: #00091f; position: relative; padding-top: 20px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- İletişim Bilgileri -->
+                <div class="col-md-3" style="font-size: 1.2rem;">
+                    <h5 style="padding-left: 3rem;">Bize Ulaşın!</h5> <br>
+                    <p class="card-text"><i class="fa-solid fa-phone"></i> +90 312 581 39 60</p>
+                    <p class="card-text"><i class="fas fa-fax"></i> +90 312 310-2416</p>
+                    <p class="card-text"><i class="fa-solid fa-envelope"></i> ihddtr@dernek.org</p>
+                    <div class="row justify-content-start">
+                        <p><i class="fa-solid fa-location-dot"></i> Devlet, Atatürk Blv No:153, 06543 Çankaya/Ankara</p>
+                    </div>
+                </div>
+
+                <!-- Slogan -->
+                <div class="col-md-3" style="font-size: 1.2rem;">
+                    <div class="p-0 m-0">
+                        <div>
+                            <img src="image/slogan.png" style="width: 200px; height:230px; margin-top: 2rem;" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kades -->
+                <div class="col-md-3" style="font-size: 1.2rem;">
+                    <div class="p-0 m-0">
+                        <div>
+                            <img src="image/kades.png" style="width: 200px; height:230px; margin-top: 2rem;"
+                                alt="Kades">
+
+                        </div>
+                        <div style="font-size: 1.7rem; padding-left: 3.5rem; display: flex; gap: 2rem;">
+                            <a href="https://play.google.com/store/apps/details?id=tr.gov.egm.kades&hl=tr"
+                                target="_blank"><i class="fa-brands fa-google-play"></i></a>
+                            <a href="https://apps.apple.com/tr/app/kades/id1360309770" target="_blank"><i
+                                    class="fa-brands fa-app-store-ios"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gönüllü Ol Formu -->
+                <div class="col-md-3">
+                    <div class="card footer-card p-4 shadow-lg border-0 rounded"
+                        style="width: 100%; max-width: 350px; background: linear-gradient(to bottom, #00091f, #2a5298); color: white;">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-hands-holding-child" style="color: white;"></i>
+                            <h4 class="card-title mb-4"> Gönüllü Ol</h4>
+                            <form id="newsletterForm">
+                                <div class="form">
+                                    <input id="newsletter1" type="email" class="form-control border-0 shadow-sm"
+                                        placeholder="Email Giriniz:" style="height: 50px; font-size: 15px;" required>
+                                </div>
+                                <button class="btn btn-light text-dark fw-bold rounded mt-2 " type="submit"
+                                    style="height: 35px; font-size: 16px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 5px;margin-left: 3.5rem;">
+                                    <img src="image/aboneol.jpeg"
+                                        style="max-height: 100%; max-width: 100%; border-radius: 5px;">
+                                </button>
+                                <div id="error-message" class="text-danger mt-2" style="display: none;">Lütfen geçerli
+                                    bir e-posta adresi girin.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+        <footer class="fixed" style="background-color: #e3edef;">
+            <div class="d-flex flex-column flex-sm-row justify-content-between pt-3 me-4 ms-4">
+                <p>© 2025 İHDD Tüm Hakları Saklıdır.</p>
+                <div class="d-flex align-items-center social-container" style="gap: 16px;">
+                    <a href="#" class="social-link">
+                        <span class="social-text">Instagram</span>
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="social-text">Facebook</span>
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="social-text">Twitter</span>
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script>
+        // FOOTER ABONE OL
+        document.getElementById('newsletterForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var emailInput = document.getElementById('newsletter1');
+            var errorMessage = document.getElementById('error-message');
+
+            if (!emailInput.value.trim()) {
+                errorMessage.style.display = 'block';
+                emailInput.classList.add('is-invalid');
+            } else {
+                errorMessage.style.display = 'none';
+                errorMessage.classList.remove('is-invalid');
+                alert('Abone olduğunuz için teşekkürler!');
+                emailInput.value = ''; // Formu sıfırla
+            }
+        });
+
+        // Navbar
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const brandText = document.querySelector('.navbar-brand span');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = '#ffffff'; // Arka plan beyaz
+                navbar.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.2)'; // Hafif gölge
+                navLinks.forEach(link => link.style.color = '#00091f'); // Yazı rengi koyu mavi
+                brandText.style.color = '#00091f';
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.0)'; // Şeffaf siyah
+                navbar.style.boxShadow = 'none';
+                navLinks.forEach(link => link.style.color = 'black'); // Yazı rengi beyaz
+                brandText.style.color = 'black';
+            }
+        });
+
+        // Dark Mode
+        document.getElementById("darkModeToggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.removeItem("darkMode");
+            }
+        });
+
+        // localStorage
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem("darkMode") === "enabled") {
+                document.body.classList.add("dark-mode");
+                const navbar = document.getElementById("navbar");
+                navbar.classList.add("dark-mode");
+            }
+        });
+    </script>
+</body>
+
+</html>

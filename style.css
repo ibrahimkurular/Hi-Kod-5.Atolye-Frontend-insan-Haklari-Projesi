@@ -1,0 +1,387 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f3f3f3;
+}
+
+main {
+  padding: 20px;
+  margin: 20px;
+  margin-top: 10px;
+}
+
+/* İçerik 3 Card */
+.section-card {
+  margin-top: 2rem;
+}
+
+/* Bağış Yap */
+.bagisYap {
+  background-color: #008000 !important; /* Yeşil renk */
+  color: white !important;
+  border: none !important;
+  border-radius: 25px !important; /* Oval şekil */
+  padding: 8px 24px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+}
+
+.bagisYap:hover {
+  background-color: #006400 !important; /* Hover durumunda koyu yeşil */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.card {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.modal-baslik {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+}
+
+.modal-yazi {
+  color: black;
+}
+
+/* Gönüllü ol icon */
+.card i {
+  font-size: 30px;
+}
+
+body.dark-mode {
+  background-color: #030e2b;
+  /* Koyu mod arka plan */
+  color: beige;
+}
+
+/* Dark Mode Navbar */
+.dark-mode .navbar {
+  background-color: #00091f !important;
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .navbar-nav .nav-link {
+  color: white !important;
+  /* Yazıları beyaz yap */
+}
+
+.dark-mode span {
+  color: white !important;
+  /* Logo Yazı beyaz yap */
+}
+
+.dark-mode .navbar-nav .nav-link:hover {
+  color: #f8f9fa !important;
+}
+
+/* Dark Mode İçerik */
+
+.dark-mode .modal-content {
+  /* Modal içeriği için koyu mod */
+  background-color: #343a40;
+  /* Örnek bir koyu renk */
+  color: #f8f9fa;
+}
+
+.dark-mode .modal-header .btn-close {
+  /* Koyu modda kapatma ikonu */
+  filter: invert(1);
+  /* İkon rengini ters çevir */
+}
+
+/* Öne Çıkan Savunucular */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.testimonial-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  background: #fff;
+  min-height: 280px;
+  /* Kartların minimum yüksekliği */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Dikeyde eşit mesafe */
+  align-items: center;
+  margin: 10px;
+}
+
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  /* Fotoğrafın yüksekliğini belirleyelim */
+  object-fit: cover;
+  /* Fotoğrafın orantılı şekilde sığmasını sağlar */
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.testimonial-card h5 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.dark-mode .testimonial-card h5 {
+  color: black;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer */
+.social-container {
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+  padding: 8px;
+}
+
+.social-text {
+  position: absolute;
+  left: -120px;
+  /* Başlangıçta gizli */
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  background: #f8f9fa;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.social-link:hover .social-text {
+  opacity: 1;
+  visibility: visible;
+  left: -100px;
+  /* Yazının sola doğru açılması */
+}
+
+.social-link:hover {
+  margin-left: 80px;
+  /* Hover sırasında ikonun sağa kayması */
+}
+
+.social-link i {
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-link:hover i {
+  transform: scale(1.2);
+  /* İkonu büyütme efekti */
+}
+
+/* Dark Mode Footer */
+.dark-mode .social-text,
+ /* Sosyal medya metin kutuları */
+ .dark-mode .footer-card {
+  background-color: #343a40;
+  /* Koyu modda arka plan rengini ayarla */
+  color: #f8f9fa;
+  /* Koyu modda metin rengini ayarla */
+}
+
+.dark-mode footer {
+  background-color: #00091f;
+}
+
+.dark-mode .btn-outline-dark {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.dark-mode .btn-outline-dark:hover {
+  background-color: #f8f9fa;
+  color: #00091f;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+  
+  .navbar .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 12px !important;
+  }
+  
+  .bagisYap {
+    padding: 6px 16px !important;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 991px) {
+  #navbar {
+    width: 100% !important;
+    border-radius: 0 !important;
+    top: 0 !important;
+  }
+
+  .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #000 !important; /* Yeni eklenen - yazı rengini siyah yap */
+  }
+  
+  /* Dark mode için navbar yazı rengi düzeltmesi */
+  .dark-mode .navbar-collapse {
+    background-color: #00091f; /* Yeni eklenen - dark mode arka plan */
+  }
+  
+  .dark-mode .navbar-nav .nav-link {
+    color: #fff !important; /* Yeni eklenen - dark mode yazı rengi */
+  }
+
+  .bagisYap {
+    margin: 1rem auto !important;
+    width: 200px !important; /* Sabit genişlik */
+    font-size: 0.85rem;
+    padding: 8px 20px !important;
+  }
+
+  #darkModeToggle {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-card .card {
+    margin-bottom: 2rem;
+  }
+  
+  .testimonial-card {
+    margin: 1rem 0;
+  }
+  
+  footer {
+    text-align: center;
+  }
+  
+  footer h5 {
+    padding-left: 0 !important;
+    margin-top: 1.5rem;
+  }
+  
+  .footer-card {
+    margin: 1.5rem auto;
+  }
+  
+  .social-container {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .bagisYap {
+    width: 180px !important; /* Daha küçük ekranlarda daha dar */
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  
+  video {
+    border-radius: 0 !important;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .accordion-button {
+    font-size: 0.9rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+  }
+  
+  .bagisYap {
+    width: 160px !important; /* En küçük ekranlarda en dar hali */
+    font-size: 0.8rem;
+    padding: 6px 16px !important;
+  }
+}
+
+/* Harita için responsive düzenleme */
+@media (max-width: 768px) {
+  section img[src*="map22.png"] {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Video için responsive düzenleme */
+@media (max-width: 576px) {
+  video {
+    max-height: 50vh;
+  }
+}
+
+/* Modal içeriği için responsive düzenleme */
+@media (max-width: 576px) {
+  .modal-content {
+    background-size: contain;
+  }
+  
+  .modal-title {
+    font-size: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .modal-yazi {
+    font-size: 0.9rem;
+  }
+}

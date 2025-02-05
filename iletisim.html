@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <title>İHDD</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f3f3f3;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            min-height: 100vh;
+            background-image: url('image/iletisim2.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.9;
+        }
+
+        main {
+            padding: 20px;
+            margin: 20px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-direction: row;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            position: relative;
+            gap: 8px;
+            text-decoration: none;
+            color: inherit;
+            font-size: 24px;
+            transition: all 0.3s ease-in-out;
+            padding: 8px;
+        }
+
+        .social-text {
+            position: absolute;
+            left: -120px;
+            /* Başlangıçta gizli */
+            opacity: 0;
+            visibility: hidden;
+            white-space: nowrap;
+            background: #f8f9fa;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .social-link:hover .social-text {
+            opacity: 1;
+            visibility: visible;
+            left: -100px;
+            /* Yazının sola doğru açılması */
+        }
+
+        .social-link:hover {
+            margin-left: 80px;
+            /* Hover sırasında ikonun sağa kayması */
+        }
+
+        .social-link i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-link:hover i {
+            transform: scale(1.2);
+            /* İkonu büyütme efekti */
+        }
+
+        /* Bağış Yap */
+        .bagisYap:hover {
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .card {
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            /* Hafif yukarı hareket */
+            transition: all 0.3s ease;
+        }
+
+        h2 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* Gönüllü ol icon */
+        .card i {
+            font-size: 30px;
+        }
+
+        /* Navbar Dark Mode */
+        body.dark-mode {
+            background-color: #030e2b;
+            /* Koyu mod arka plan */
+            color: beige;
+            /* Koyu mod metin rengi */
+        }
+
+        .dark-mode .navbar {
+            background-color: #00091f !important;
+            /* Koyu arka plan */
+        }
+
+        .dark-mode .navbar-brand,
+        .dark-mode .navbar-nav .nav-link {
+            color: white !important;
+            /* Yazıları beyaz yap */
+        }
+
+        .dark-mode span {
+            color: white !important;
+        }
+
+        .dark-mode .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important;
+        }
+
+
+        /* İçerik Dark mode */
+        .dark-mode .modal-content {
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+
+        .dark-mode .modal-header .btn-close {
+            filter: invert(1);
+
+        }
+
+        /* Footer dark mode */
+        .dark-mode .social-text,
+        /* Sosyal medya metin kutuları */
+        .dark-mode .footer-card {
+            background-color: #343a40;
+            color: #f8f9fa;
+        }
+
+        .dark-mode footer {
+            background-color: #00091f;
+            text-align: center; /* Tüm footer içeriğini ortalamak için */
+        }
+
+        .dark-mode .row {
+            justify-content: center; /* Satır içeriğini ortalamak için */
+        }
+
+        .dark-mode .col-md-4 {
+            text-align: center; /* Her sütundaki yazıları ortalamak için */
+        }
+
+        .dark-mode .btn-outline-dark {
+            color: #f8f9fa;
+            border-color: #f8f9fa;
+        }
+
+        .dark-mode .btn-outline-dark:hover {
+            background-color: #f8f9fa;
+            color: #00091f;
+        }
+
+        /* Mobil cihazlar için medya sorgusu ekliyoruz */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                /* Mobilde scroll yapılabilir */
+            }
+
+            main {
+                padding: 10px;
+                /* Mobilde kenar boşluklarını azalt */
+                margin: 10px;
+            }
+
+            .section-card {
+                margin-top: 1rem;
+                /* Mobilde üst boşluğu azalt */
+            }
+
+            .navbar-collapse {
+                background-color: rgba(255, 255, 255, 0.95);
+                border-radius: 10px;
+                padding: 10px;
+                margin-top: 10px;
+                box-shadow: none;
+                /* Gölgeyi kaldırıyoruz */
+                border: none;
+                /* Sınırı kaldırıyoruz */
+            }
+
+            .dark-mode .navbar-collapse {
+                background-color: rgba(0, 9, 31, 0.95);
+            }
+
+            .navbar-nav {
+                padding: 0;
+                /* İç boşluğu kaldırıyoruz */
+                margin: 0;
+                /* Dış boşluğu kaldırıyoruz */
+            }
+
+            .navbar-nav .nav-link {
+                color: #00091f !important;
+                padding: 8px !important;
+                /* Padding'i azaltıyoruz */
+                text-align: center;
+                font-weight: 500;
+                border-radius: 0;
+                /* Kenar yuvarlaklığını kaldırıyoruz */
+                margin: 0;
+                /* Dış boşluğu kaldırıyoruz */
+            }
+
+            .dark-mode .navbar-nav .nav-link {
+                color: #ffffff !important;
+            }
+
+            .navbar-toggler {
+                border: none;
+                padding: 0.5rem;
+            }
+
+            .dark-mode .navbar-toggler-icon {
+                filter: invert(1);
+            }
+
+            /* Bağış Yap butonu ve dark mode toggle düzenlemeleri */
+            .bagisYap,
+            #darkModeToggle {
+                margin: 8px auto !important;
+                width: fit-content;
+            }
+
+            /* Dropdown menü düzeltmeleri */
+            .dropdown-menu {
+                background-color: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .dropdown-item {
+                text-align: center;
+                padding: 8px;
+            }
+
+            .social-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        /* Dark mode toggle buton genel stil */
+        #darkModeToggle {
+            width: 30px; /* Buton genişliğini küçült */
+            height: 30px; /* Buton yüksekliğini küçült */
+            margin-top: 8px; /* Bağış Yap butonunun altına biraz boşluk ekle */
+        }
+
+        .dark-mode #darkModeToggle {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        #darkModeToggle:hover {
+            background-color: rgba(0, 9, 31, 0.1);
+        }
+
+        .dark-mode #darkModeToggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dark mode için içerik yazı rengi düzeltmeleri */
+        .dark-mode .form-wrapper h3,
+        .dark-mode .form-wrapper label,
+        .dark-mode .card-custom h5,
+        .dark-mode .card-custom p,
+        .dark-mode .form-container {
+            color: #00091f !important;
+            /* Koyu renk yazı */
+        }
+
+        .dark-mode .card {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            /* Kartlar için açık arka plan */
+        }
+
+        .dark-mode .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* Form elemanları için dark mode düzeltmeleri */
+        .dark-mode .form-control {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #00091f;
+        }
+
+        .dark-mode .form-control::placeholder {
+            color: #495057;
+        }
+
+        .modal-baslik {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+        }
+
+        .modal-yazi {
+            color: black;
+        }
+
+        /* Harita için responsive stiller */
+        .map-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .map-container {
+                padding: 0 15px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                padding-left: 1rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+        <nav id="navbar" class="navbar navbar-expand-lg shadow-lg mx-auto"
+            style="background-color: transparent; transition: all 0.3s ease; top: 10px; width: 94%; z-index: 1000; position: fixed; left: 50%; transform: translateX(-50%); border-radius: 4rem;">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="image/logo.png" style="width: 80px; margin-right: 10px;" alt="İHDD" title="İHDD">
+                    <span style="font-size: 1.2rem; font-weight: bold;">IHDD</span>
+                </a>
+
+                <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center" style="font-size: larger;">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" style="padding: 10px 15px;">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hakkimizda.html" style="padding: 10px 15px;">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="padding: 10px 15px;">
+                                İnsan Hakları
+                            </a>
+                            <ul class="dropdown-menu shadow-lg rounded">
+                                <li><a class="dropdown-item" href="kadin-haklari.html">Kadın Hakları</a></li>
+                                <li><a class="dropdown-item" href="cocuk-haklari.html">Çocuk Hakları</a></li>
+                                <li><a class="dropdown-item" href="yasam-hakki.html">Yaşama Hakkı</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html" style="padding: 10px 15px;">İletişim</a>
+                        </li>
+                    </ul>
+
+                    <button type="button" style="background-color: rgb(1, 92, 1); border: none;"
+                        class="btn btn-dark out rounded-pill shadow-sm px-4 py-2 me-3 bagisYap" data-bs-toggle="modal"
+                        data-bs-target="#donationModal">
+                        <strong><i class="fas fa-heart me-2"></i>BAĞIŞ YAP</strong>
+                    </button>
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="darkModeToggle" class="btn btn-outline-dark border-0">
+                            <i id="darkModeIcon" class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Bağış Yap -->
+        <section>
+            <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content"
+                        style="background-image: url('image/el-isareti.jpeg'); background-repeat: no-repeat; background-position: left; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="donationModalLabel"
+                                style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: palevioletred; font-weight: bolder;">
+                                Minik
+                                Dokunuşlar Büyük Etkiler Yaratabilir!
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="modal-baslik"
+                                style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: center;">Bağış
+                                Formu</h4>
+                            <div class="container">
+                                <p class="modal-yazi" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Bağış
+                                    yapmak için lütfen
+                                    formu doldurun veya seçiminizi yapın.</p>
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" id="adsoyad" name="adsoyad" class="form-control"
+                                            placeholder="Ad - Soyad:" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            placeholder="E-posta:" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="miktar" class="form-label modal-yazi">Bağış Miktarı:</label>
+                                        <select id="miktar" name="miktar" class="form-select">
+                                            <option value="20">20 TL</option>
+                                            <option value="50">50 TL</option>
+                                            <option value="100">100 TL</option>
+                                            <option value="diger">Diğer</option>
+                                        </select>
+                                        <input type="number" id="digerMiktar" name="digerMiktar" class="form-control"
+                                            placeholder="Diğer miktar girin">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="odemeYontemi" class="form-label modal-yazi">Ödeme Yöntemi:</label>
+                                        <select id="odemeYontemi" name="odemeYontemi" class="form-select">
+                                            <option value="krediKarti">Kredi Kartı</option>
+                                            <option value="bankaKarti">Banka Kartı</option>
+                                            <option value="havale">Havale/EFT</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="bagisAmaci" class="form-label modal-yazi">Bağış Amacı:</label>
+                                        <select id="bagisAmaci" name="bagisAmaci" class="form-select">
+                                            <option value="egitim">Eğitim</option>
+                                            <option value="saglik">Sağlık</option>
+                                            <option value="insanHaklari">İnsan Hakları</option>
+                                            <option value="diger">Diğer</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" id="gizlilik" name="gizlilik" class="form-check-input"
+                                            required>
+                                        <label class="form-check-label modal-yazi" for="gizlilik">Kişisel verilerimin
+                                            gizliliğini
+                                            onaylıyorum.</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">Bağışı Tamamla</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="margin-top: 7rem;">
+
+            <div class="container">
+                <div class="row">
+                    <!-- Sol Tarafta İletişim Formu (Kartların Altında) -->
+                    <div class="col-md-12 col-lg-6 form-wrapper">
+                        <div class="form-container text form-wrapper">
+                            <h3>Bize Görüş Bildirin</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Adınız</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Adınızı girin">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-posta</label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="E-posta adresinizi girin">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mesajınız</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Mesajınızı yazın"
+                                        style="resize: none;"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Gönder</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Sağ Tarafta 2 Kartlı Satırlar (Kartlar) -->
+                    <div class="col-md-12 col-lg-6 cards-wrapper">
+                        <div class="card-wrapper">
+                            <div class="card card-custom">
+                                <div class="card-body" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    <i class="fas fa-location-dot"></i> <!-- Ana ofis ikonu -->
+                                    <div>
+                                        <h5 class="card-title">Ana Ofis</h5>
+                                        <p class="card-text">Ankara, Türkiye</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-wrapper mt-2">
+                            <div class="card card-custom">
+                                <div class="card-body" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    <i class="fas fa-phone-alt"></i> <!-- Telefon ikonu -->
+                                    <div>
+                                        <h5 class="card-title">Telefon</h5>
+                                        <p class="card-text">+90 312 581 39 60</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-wrapper mt-2">
+                            <div class="card card-custom">
+                                <div class="card-body" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    <i class="fas fa-fax"></i> <!-- Faks ikonu -->
+                                    <div>
+                                        <h5 class="card-title">Faks</h5>
+                                        <p class="card-text">+90 312 310-2416</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-wrapper mt-2">
+                            <div class="card card-custom">
+                                <div class="card-body" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    <i class="fas fa-envelope"></i> <!-- E-posta ikonu -->
+                                    <div>
+                                        <h5 class="card-title">E-posta</h5>
+                                        <p class="card-text">ihddtr@dernek.org</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Harita -->
+        <section style="margin-top: 1rem;">
+            <div class="container">
+                <h2 class="mb-4" style="font-weight: bold; color: #030e2b; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    Biz Nerelerdeyiz ?
+                </h2>
+                <div class="map-container">
+                    <img src="image/map22.png" class="img-fluid" alt="Harita">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- place footer here -->
+    <footer style="background-color: #e3edef; color: #00091f; position: relative; padding-top: 20px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4" style="font-size: 1.2rem;">
+                    <h5 style="padding-left: 3rem;">Bize Ulaşın!</h5> <br>
+                    <p class="card-text"><i class="fa-solid fa-phone"></i> +90 312 581 39 60</p>
+                    <p class="card-text"><i class="fas fa-fax"></i> +90 312 310-2416</p>
+                    <p class="card-text"><i class="fa-solid fa-envelope"></i> ihddtr@dernek.org</p>
+                    <div class="row justify-content-start">
+                        <p><i class="fa-solid fa-location-dot"></i> Devlet, Atatürk Blv No:153, 06543 Çankaya/Ankara</p>
+                    </div>
+                </div>
+                <div class="col-md-4" style="font-size: 1.2rem;">
+                    <div class="p-0 m-0">
+                        <div>
+                            <img src="image/slogan.png" style="width: 200px; height:230px; margin-top: 2rem;" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card footer-card p-4 shadow-lg border-0 rounded"
+                        style="width: 100%; max-width: 350px; background: linear-gradient(to bottom, #00091f, #2a5298); color: white;">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-hands-holding-child" style="color: white;"></i>
+                            <h4 class="card-title mb-4"> Gönüllü Ol</h4>
+                            <form id="newsletterForm">
+                                <div class="form">
+                                    <input id="newsletter1" type="email" class="form-control border-0 shadow-sm"
+                                        placeholder="Email Giriniz:" style="height: 50px; font-size: 15px;" required>
+                                </div>
+                                <button class="btn btn-light text-dark fw-bold rounded mt-2 " type="submit"
+                                    style="height: 45px; font-size: 16px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 5px;margin-left: 3.5rem;">
+                                    <img src="image/aboneol.jpeg"
+                                        style="max-height: 100%; max-width: 100%; border-radius: 5px;">
+                                </button>
+                                <div id="error-message" class="text-danger mt-2" style="display: none;">Lütfen geçerli
+                                    bir e-posta adresi girin.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+        <!-- Footer -->
+        <footer class="fixed" style="background-color: #e3edef; text-align: center;">
+            <div class="d-flex flex-column flex-sm-row justify-content-between pt-3 me-4 ms-4">
+                <p>© 2025 İHDD Tüm Hakları Saklıdır.</p>
+                <div class="d-flex align-items-center social-container">
+                    <a href="#" class="social-link">
+                        <span class="social-text">Instagram</span>
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="social-text">Facebook</span>
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="social-text">Twitter</span>
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script>
+        // FOOTER ABONE OL
+        document.getElementById('newsletterForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var emailInput = document.getElementById('newsletter1');
+            var errorMessage = document.getElementById('error-message');
+
+            if (!emailInput.value.trim()) {
+                errorMessage.style.display = 'block';
+                emailInput.classList.add('is-invalid');
+            } else {
+                errorMessage.style.display = 'none';
+                emailInput.classList.remove('is-invalid');
+                alert('Abone olduğunuz için teşekkürler!');
+                emailInput.value = ''; // Formu sıfırla
+            }
+        });
+
+        // Navbar
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const brandText = document.querySelector('.navbar-brand span');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = '#ffffff'; // Arka plan beyaz
+                navbar.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.2)'; // Hafif gölge
+                navLinks.forEach(link => link.style.color = '#00091f'); // Yazı rengi koyu mavi
+                brandText.style.color = '#00091f';
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.0)'; // Şeffaf siyah
+                navbar.style.boxShadow = 'none';
+                navLinks.forEach(link => link.style.color = 'black'); // Yazı rengi beyaz
+                brandText.style.color = 'black';
+            }
+        });
+
+        // Dark Mode
+        document.getElementById("darkModeToggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("dark-mode"); // Simplified using toggle
+
+            // Store dark mode preference in localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.removeItem("darkMode"); // Or localStorage.setItem("darkMode", "disabled"); if you prefer
+            }
+        });
+
+        // Check localStorage for dark mode preference on page load
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem("darkMode") === "enabled") {
+                document.body.classList.add("dark-mode");
+                const navbar = document.getElementById("navbar");
+                navbar.classList.add("dark-mode");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <title>İHDD</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+        <nav id="navbar" class="navbar navbar-expand-lg shadow-lg mx-auto"
+            style="background-color: transparent; transition: all 0.3s ease; top: 10px; width: 94%; z-index: 1000; position: fixed; left: 50%; transform: translateX(-50%); border-radius: 4rem;">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="image/logo.png" style="width: 80px; margin-right: 10px;" alt="İHDD" title="İHDD">
+                    <span style="font-size: 1.2rem; font-weight: bold;">IHDD</span>
+                </a>
+
+                <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center" style="font-size: larger;">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" style="padding: 10px 15px;">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hakkimizda.html" style="padding: 10px 15px;">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="padding: 10px 15px;">
+                                İnsan Hakları
+                            </a>
+                            <ul class="dropdown-menu shadow-lg rounded">
+                                <li><a class="dropdown-item" href="kadin-haklari.html">Kadın Hakları</a></li>
+                                <li><a class="dropdown-item" href="cocuk-haklari.html">Çocuk Hakları</a></li>
+                                <li><a class="dropdown-item" href="yasam-hakki.html">Yaşama Hakkı</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html" style="padding: 10px 15px;">İletişim</a>
+                        </li>
+                    </ul>
+                    <button type="button" style="background-color: rgb(1, 92, 1); border: none;"
+                        class="btn btn-dark out rounded-pill shadow-sm px-4 py-2 me-3 bagisYap" data-bs-toggle="modal"
+                        data-bs-target="#donationModal">
+                        <strong><i class="fas fa-heart me-2"></i>BAĞIŞ YAP</strong>
+                    </button>
+                    <button id="darkModeToggle" class="btn btn-outline-dark border-0">
+                        <i id="darkModeIcon" class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Bağış Yap -->
+        <section>
+            <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content"
+                        style="background-image: url('image/el-isareti.jpeg'); background-repeat: no-repeat; background-position: left; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="donationModalLabel"
+                                style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: palevioletred; font-weight: bolder;">
+                                Minik
+                                Dokunuşlar Büyük Etkiler Yaratabilir!
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="modal-baslik"
+                                style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: center;">Bağış
+                                Formu</h4>
+                            <div class="container">
+                                <p class="modal-yazi" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Bağış
+                                    yapmak için lütfen
+                                    formu doldurun veya seçiminizi yapın.</p>
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" id="adsoyad" name="adsoyad" class="form-control"
+                                            placeholder="Ad - Soyad:" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            placeholder="E-posta:" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="miktar" class="form-label modal-yazi">Bağış Miktarı:</label>
+                                        <select id="miktar" name="miktar" class="form-select">
+                                            <option value="20">20 TL</option>
+                                            <option value="50">50 TL</option>
+                                            <option value="100">100 TL</option>
+                                            <option value="diger">Diğer</option>
+                                        </select>
+                                        <input type="number" id="digerMiktar" name="digerMiktar" class="form-control"
+                                            placeholder="Diğer miktar girin">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="odemeYontemi" class="form-label modal-yazi">Ödeme Yöntemi:</label>
+                                        <select id="odemeYontemi" name="odemeYontemi" class="form-select">
+                                            <option value="krediKarti">Kredi Kartı</option>
+                                            <option value="bankaKarti">Banka Kartı</option>
+                                            <option value="havale">Havale/EFT</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="bagisAmaci" class="form-label modal-yazi">Bağış Amacı:</label>
+                                        <select id="bagisAmaci" name="bagisAmaci" class="form-select">
+                                            <option value="egitim">Eğitim</option>
+                                            <option value="saglik">Sağlık</option>
+                                            <option value="insanHaklari">İnsan Hakları</option>
+                                            <option value="diger">Diğer</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" id="gizlilik" name="gizlilik" class="form-check-input"
+                                            required>
+                                        <label class="form-check-label modal-yazi" for="gizlilik">Kişisel verilerimin
+                                            gizliliğini
+                                            onaylıyorum.</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success">Bağışı Tamamla</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="padding-top: 7rem;">
+            <video style="width: 100%; max-height: 80vh; object-fit: cover; border-radius: 1rem;" loop autoplay muted
+                playsinline preload="metadata">
+                <source src="image/slider.mp4" type="video/mp4">
+                <source src="image/slider.webm" type="video/webm">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+        <section>
+            <!-- Accordion Yapısı -->
+            <div class="container mt-5">
+                <h2
+                    style="color: #030e2b; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    <i class="fa-solid fa-hands-holding-child me-2"></i>İnsan Hakları
+                </h2>
+                <div class="accordion" id="accordionExample">
+                    <!-- Human Rights Overview -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                İnsan Hakları Nedir?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                İnsan hakları, her bireyin doğuştan sahip olduğu, yaşam, özgürlük, adalet gibi temel
+                                haklardır. Her birey, cinsiyet, ırk, dil, din veya toplumsal sınıf fark etmeksizin eşit
+                                haklara sahiptir.
+                                <ul>
+                                    <li><strong>Madde 1:</strong> “Bütün insanlar hür ve eşit olarak doğarlar.”</li>
+                                    <li><strong>Madde 3:</strong> “Yaşama hakkı, özgürlük ve güvenlik hakkı her bireyin
+                                        hakkıdır.”</li>
+                                </ul>
+                                <!-- Link to open modal -->
+                                <a href="#" class="text-decoration-none" style="color: grey;"
+                                    onmouseover="this.style.color='black'" onmouseout="this.style.color='grey'"
+                                    data-bs-toggle="modal" data-bs-target="#myModal">
+                                    İnsan Hakları Evrensel Bildirgesi ile ilgili daha fazla bilgi edinmek için..
+                                </a>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content" style="background-color: #cbced1; color: black;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title"
+                                                    style="font-family: Verdana, Geneva, Tahoma, sans-serif;"
+                                                    id="myModalLabel">İnsan Hakları Evrensel
+                                                    Bildirgesi
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">10 Aralık
+                                                    1948</h5>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Başlangıç
+                                                </h5>
+                                                <p> İnsanlık ailesinin bütün üyelerinin doğal yapısındaki onuru ile eşit
+                                                    ve devredilemez haklarını tanımanın dünyada özgürlük, adalet ve
+                                                    barışın temeli olduğunu,
+                                                </p>
+                                                <p>
+                                                    İnsan haklarını göz ardı etmenin ve hor görmenin, insanlığın
+                                                    vicdanında
+                                                    infial uyandıran barbarca eylemlere yol açtığını ve insanların korku
+                                                    ve
+                                                    yoksunluktan kurtulması, konuşma ve inanma özgürlüğüne sahip olacağı
+                                                    bir
+                                                    dünyanın ortaya çıkmasının sıradan insanların en yüksek özlemi
+                                                    olarak
+                                                    ilan edilmiş bulunduğunu, insanın zorbalık ve baskıya karşı son çare
+                                                    olarak başkaldırmak zorunda kalmaması için, insan haklarının hukukun
+                                                    egemenliğiyle korunmasının önemli olduğunu,
+                                                </p>
+                                                <p>
+                                                    Uluslar arasında dostça ilişkiler geliştirmenin önemli olduğunu,
+                                                </p>
+                                                <p>
+                                                    Birleşmiş Milletler halklarının, Birleşmiş Milletler Kuruluş
+                                                    Belgesinde,
+                                                </p>
+                                                <p>
+                                                    temel insan haklarına, kişinin onuruna ve değerine, erkekler ile
+                                                    kadınların hak eşitliğine olan inançlarını teyit ettiklerini ve daha
+                                                    geniş özgürlük içinde toplumsal gelişme ve daha iyi bir yaşam
+                                                    düzeyini
+                                                    sağlamaya kararlı olduklarını,
+                                                </p>
+                                                <p>
+                                                    Üye Devletlerin, Birleşmiş Milletlerle işbirliği içinde, insan
+                                                    haklarının ve temel özgürlüklerin evrensel olarak saygı görmesi ve
+                                                    gözetilmesini sağlamayı taahhüt ettiklerini,
+                                                </p>
+                                                <p>
+                                                    Bu hak ve özgürlüklerde ortak bir anlayışa sahip olmanın, bu
+                                                    taahhüdün
+                                                    tam olarak gerçekleşmesi için büyük önem taşıdığını göz önüne
+                                                    alarak,
+                                                </p>
+
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Genel
+                                                    Kurul,</h5>
+                                                <p>
+                                                    Bütün halklar ve uluslar için bir ortak başarı ölçüsü olarak bu
+                                                    insan
+                                                    Hakları Evrensel Bildirgesini ilan eder; öyle ki,
+                                                </p>
+                                                <p>
+                                                    Her birey ve toplumun her organı bu Bildirgeyi daima gözönünde
+                                                    bulundurarak, bu hak ve özgürlüklere saygının yerleşmesini amaçlayan
+                                                    eğitim ve öğretim yoluyla; ve hem üye Devletlerin halklarında hem de
+                                                    egemenlikleri altındaki halklarda bu hak ve özgürlüklerin evrensel
+                                                    ve
+                                                    etkin olarak tanınmasını ve gözetilmesini amaçlayan ulusal ve
+                                                    uluslararası tedrici önlemler alarak çaba göstersinler.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                                    Madde 1
+                                                </h5>
+                                                <p>
+                                                    Bütün insanlar özgür, onur ve haklar bakımından eşit doğarlar. Akıl
+                                                    ve
+                                                    vicdanla donatılmışlardır, birbirlerine kardeşlik anlayışıyla
+                                                    davranmalıdırlar.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 2
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkes ırk, renk, cinsiyet, dil, din, siyasal ya da başka türden
+                                                        kanaat, ulusal ya da toplumsal köken, mülkiyet, doğuş veya başka
+                                                        türden
+                                                        statü gibi herhangi bir ayrım gözetilmeksizin, bu Bildirgede
+                                                        belirtilen
+                                                        bütün hak ve özgürlüklere sahiptir.</li>
+                                                    <li>Ayrıca, bağımsız, vesayet altında ya da kendi kendini
+                                                        yönetemeyen ya
+                                                        da egemenliği başka yollardan sınırlanmış bir ülke olsun ya da
+                                                        olmasın,
+                                                        bir kişinin uyruğu olduğu ülke ya da memleketin siyasal,
+                                                        hukuksal ya da
+                                                        uluslararası statüsüne dayanarak hiçbir ayrım yapılamaz.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 3
+                                                </h5>
+                                                <p>Herkesin yaşama hakkı ile kişi özgürlüğü ve güvenliğine hakkı vardır.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                                    Madde 4
+                                                </h5>
+                                                <p>
+                                                    Hiç kimse, kölelik ya da kulluk altında tutulamaz; her türden
+                                                    kölelik ve
+                                                    köle ticareti yasaktır.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                                    Madde 5
+                                                </h5>
+                                                <p>
+                                                    Hiç kimseye işkence ya da zalimce, insanlık dışı ya da aşağılayıcı
+                                                    muamele ya da ceza uygulanamaz.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                                    Madde 6
+                                                </h5>
+                                                <p>
+                                                    Herkesin, nerede olursa olsun, yasa önünde bir kişi olarak tanınma
+                                                    hakkı
+                                                    vardır.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                                    Madde 7
+                                                </h5>
+                                                <p>
+                                                    Herkes yasa önünde eşittir ve ayrım gözetilmeksizin yasa tarafından
+                                                    eşit
+                                                    korunmaya hakkı vardır. Herkes, bu Bildirgeye aykırı herhangi bir
+                                                    ayrımcılığa ve ayrımcı kışkırtmalara karşı eşit korunma hakkına
+                                                    sahiptir.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 8
+                                                </h5>
+                                                <p>
+                                                    Herkesin anayasa ya da yasayla tanınmış temel haklarını ihlal eden
+                                                    eylemlere karşı yetkili ulusal mahkemeler eliyle etkin bir yargı
+                                                    yolundan yararlanma hakkı vardır.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 9
+                                                </h5>
+                                                <p>
+                                                    Hiç kimse keyfi olarak yakalanamaz, tutuklanamaz ve sürgün edilemez.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                                    Madde 10
+                                                </h5>
+                                                <p>Herkesin, hak ve yükümlülüklerinin belirlenmesinde ve kendisine
+                                                    herhangi
+                                                    bir suç isnadında bağımsız ve yansız bir mahkeme tarafından tam bir
+                                                    eşitlikle, hakça ve kamuya açık olarak yargılanmaya hakkı vardır.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif">Madde11
+                                                </h5>
+                                                <ul>
+                                                    <li>Kendisine cezai bir suç yüklenen herkesin, savunması için
+                                                        gerekli
+                                                        olan tüm güvencelerin tanındığı, kamuya açık bir yargılanma
+                                                        sonucunda
+                                                        suçluluğu yasaya göre kanıtlanıncaya kadar suçsuz sayılma hakkı
+                                                        vardır.</li>
+                                                    <li> Hiç kimse, işlendiği sırada ulusal ya da uluslararası hukuka
+                                                        göre suç
+                                                        oluşturmayan herhangi bir fiil yapmak ya da yapmamaktan dolayı
+                                                        suçlu
+                                                        sayılamaz. Kimseye, suçun işlendiği sırada yasalarda öngörülen
+                                                        cezadan
+                                                        daha ağır bir ceza verilemez.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 12
+                                                </h5>
+                                                <p> Hiç kimsenin özel yaşamına, ailesine, evine ya da yazışmasına keyfi
+                                                    olarak karışılamaz, onuruna ve adına saldırılamaz. Herkesin, bu gibi
+                                                    müdahale ya da saldırılara karşı yasa tarafından korunma hakkı
+                                                    vardır.</p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 13
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkesin, her Devletin sınırları içinde seyahat ve oturma
+                                                        özgürlüğüne
+                                                        hakkı vardır.</li>
+                                                    <li>Herkes, kendi ülkesi de dahil, herhangi bir ülkeden ayrılma ve o
+                                                        ülkeye dönme hakkına sahiptir.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;"> Madde 14
+                                                </h5>
+                                                <ul>
+                                                    <li> Herkesin, sürekli baskı altında tutulduğunda, başka ülkelere
+                                                        sığınma
+                                                        ve kabul edilme hakkı vardır.</li>
+                                                    <li> Gerçekten siyasal nitelik taşımayan suçlardan kaynaklanan ya da
+                                                        Birleşmiş Milletlerin amaç ve ilkelerine aykırı fiillerden
+                                                        kaynaklanan
+                                                        kovuşturma durumunda, bu hak ileri sürülemez.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 15
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkesin bir ülkenin yurttaşı olmaya hakkı vardır.</li>
+                                                    <li>Hiç kimse keyfi olarak uyrukluğundan yoksun bırakılamaz,
+                                                        kimsenin
+                                                        uyrukluğunu değiştirme hakkı yadsınamaz.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 16
+                                                </h5>
+                                                <ul>
+                                                    <li>Yetişkin erkeklerle kadınların, ırk, uyrukluk ya da din
+                                                        bakımından
+                                                        herhangi bir sınırlama yapılmaksızın, evlenmeye ve bir aile
+                                                        kurmaya
+                                                        hakkı vardır. Evlenmede, evlilikte ve evliliğin bozulmasında
+                                                        hakları
+                                                        eşittir.</li>
+                                                    <li>Evlilik, ancak evlenmeye niyetlenen eşlerin özgür ve tam
+                                                        oluruyla
+                                                        yapılır.</li>
+                                                    <li>Aile, toplumun doğal ve temel birimidir; toplum ve Devlet
+                                                        tarafından
+                                                        korunur.
+                                                    </li>
+                                                </ul>
+
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 17
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkesin, tek başına ya da başkalarıyla ortaklık içinde,
+                                                        mülkiyet
+                                                        hakkı vardır.</li>
+                                                    <li>Kimse mülkiyetinden keyfi olarak yoksun bırakılamaz.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 18
+                                                </h5>
+                                                <p>
+                                                    Herkesin düşünce, vicdan ve din özgürlüğüne hakkı vardır; bu hak,
+                                                    din
+                                                    veya inancını değiştirme özgürlüğünü ve din veya inancını, tek
+                                                    başına
+                                                    veya topluca ve kamuya açık veya özel olarak öğretme, uygulama,
+                                                    ibadet
+                                                    ve uyma yoluyla açıklama serbestliğini de kapsar.
+                                                </p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 19
+                                                </h5>
+                                                <p>Herkesin kanaat ve ifade özgürlüğüne hakkı vardır; bu hak, müdahale
+                                                    olmaksızın kanaat taşıma ve herhangi bir yoldan ve ülke sınırlarını
+                                                    gözetmeksizin bilgi ve fikirlere ulaşmaya çalışma, onları edinme ve
+                                                    yayma serbestliğini de kapsar.</p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 20
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkes, barış içinde toplanma ve örgütlenme hakkına sahiptir.
+                                                    </li>
+                                                    <li>Hiç kimse, bir örgüte üye olmaya zorlanamaz.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 21
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkes, doğrudan ya da serbestçe seçilmiş temsilcileri
+                                                        aracılığıyla
+                                                        ülkesinin yönetimine katılma hakkına sahiptir.</li>
+                                                    <li>Herkesin, ülkesinde kamu hizmetlerinden eşit yararlanma hakkı
+                                                        vardır.</li>
+                                                    <li> Halk iradesi, hükümet otoritesinin temelini oluşturmalıdır; bu
+                                                        irade,
+                                                        genel ve eşit oy hakkı ile gizli ve serbest oylama yoluyla,
+                                                        belirli
+                                                        aralıklarla yapılan dürüst seçimlerle belirtilir.
+                                                    </li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 22
+                                                </h5>
+                                                <p>Herkesin, toplumun bir üyesi olarak, toplumsal güvenliğe hakkı
+                                                    vardır;
+                                                    ulusal çabalarla, uluslararası işbirliği yoluyla ve her Devletin
+                                                    örgütlenme ve kaynaklarına göre herkes insan onuru ve kişiliğin
+                                                    özgür
+                                                    gelişmesi bakımından vazgeçilmez olan ekonomik, toplumsal ve
+                                                    kültürel
+                                                    haklarının gerçekleştirilmesi hakkına sahiptir.</p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 23
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkesin çalışma, işini özgürce seçme, adil ve elverişli
+                                                        koşullarda
+                                                        çalışma ve işsizliğe karşı korunma hakkı vardır.</li>
+                                                    <li>Herkesin, herhangi bir ayrım gözetilmeksizin, eşit iş için eşit
+                                                        ücrete hakkı vardır.</li>
+                                                    <li>Çalışan herkesin, kendisi ve ailesi için insan onuruna yaraşır
+                                                        bir
+                                                        yaşam sağlayacak düzeyde, adil ve elverişli ücretlendirilmeye
+                                                        hakkı
+                                                        vardır; bu, gerekirse, başka toplumsal korunma yollarıyla
+                                                        desteklenmelidir.</li>
+                                                    <li> Herkesin, çıkarını korumak için sendika kurma ya da sendikaya
+                                                        üye
+                                                        olma hakkı vardır.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 24
+                                                </h5>
+                                                <p>Herkesin, dinlenme ve boş zamana hakkı vardır; bu, iş saatlerinin
+                                                    makul
+                                                    ölçüde sınırlandırılması ve belirli aralıklarla ücretli tatil yapma
+                                                    hakkını da kapsar.</p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 25
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkesin, kendisinin ve ailesinin sağlığı ve iyi yaşaması için
+                                                        yeterli yaşama standartlarına hakkı vardır; bu hak, beslenme,
+                                                        giyim,
+                                                        konut, tıbbi bakım ile gerekli toplumsal hizmetleri ve işsizlik,
+                                                        hastalık, sakatlık, dulluk, yaşlılık ya da kendi denetiminin
+                                                        dışındaki
+                                                        koşullardan kaynaklanan başka geçimini sağlayamama durumlarında
+                                                        güvenlik
+                                                        hakkını da kapsar.</li>
+                                                    <li>Anne ve çocukların özel bakım ve yardıma hakları vardır. Tüm
+                                                        çocuklar, evlilik içi ya da dışı doğmuş olmalarına
+                                                        bakılmaksızın, aynı
+                                                        toplumsal korumadan yararlanır.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 26
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkes, eğitim hakkına sahiptir. Eğitim, en azından ilk ve temel
+                                                        öğrenim aşamalarında parasızdır. İlköğretim zorunludur. Teknik
+                                                        ve
+                                                        mesleki eğitim herkese açıktır. Yüksek öğrenim, yeteneğe göre
+                                                        herkese
+                                                        eşit olarak sağlanır.</li>
+                                                    <li>Eğitim, insan kişiliğinin tam geliştirilmesine, insan haklarına
+                                                        ve
+                                                        temel özgürlüklere saygıyı güçlendirmeye yönelik olmalıdır.
+                                                        Eğitim,
+                                                        bütün uluslar, ırklar ve dinsel gruplar arasında anlayış,
+                                                        hoşgörü ve
+                                                        dostluğu yerleştirmeli ve Birleşmiş Milletlerin barışı koruma
+                                                        yolundaki
+                                                        etkinliklerini güçlendirmelidir.</li>
+                                                    <li>Ana-babalar, çocuklarına verilecek eğitimi seçmede öncelikli hak
+                                                        sahibidir.
+                                                    </li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 27
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkes, topluluğun kültürel yaşamına özgürce katılma, sanattan
+                                                        yararlanma ve bilimsel gelişmeye katılarak onun yararlarını
+                                                        paylaşma
+                                                        hakkına sahiptir.</li>
+                                                    <li>Herkesin kendi yaratısı olan bilim, yazın ve sanat ürünlerinden
+                                                        doğan
+                                                        manevi ve maddi çıkarlarının korunmasına hakkı vardır.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 28
+                                                </h5>
+                                                <p>Herkesin bu Bildirgede ileri sürülen hak ve özgürlüklerin tam olarak
+                                                    gerçekleşebileceği bir toplumsal ve uluslararası düzene hakkı
+                                                    vardır.</p>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 29
+                                                </h5>
+                                                <ul>
+                                                    <li>Herkesin, kişiliğinin özgürce ve tam gelişmesine olanak sağlayan
+                                                        tek
+                                                        ortam olan topluluğuna karşı ödevleri vardır.</li>
+                                                    <li>Herkes, hak ve özgürlüklerini kullanırken, ancak başkalarının
+                                                        hak ve
+                                                        özgürlüklerinin gereğince tanınması ve bunlara saygı
+                                                        gösterilmesinin
+                                                        sağlanması ile demokratik bir toplumdaki ahlak, kamu düzeni ve
+                                                        genel
+                                                        refahın adil gereklerinin karşılanması amacıyla, yasayla
+                                                        belirlenmiş
+                                                        sınırlamalara bağlı olabilir.</li>
+                                                    <li>Bu hak ve özgürlükler, hiçbir koşulda Birleşmiş Milletlerin amaç
+                                                        ve
+                                                        ilkelerine aykırı olarak kullanılamaz.</li>
+                                                </ul>
+                                                <h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Madde 30
+                                                </h5>
+                                                <p>Bu Bildirgenin hiçbir hükmü, herhangi bir Devlet, grup ya da kişiye,
+                                                    burada belirtilen hak ve özgürlüklerden herhangi birinin yok
+                                                    edilmesini
+                                                    amaçlayan herhangi bir etkinlikte ve eylemde bulunma hakkı verecek
+                                                    şekilde yorumlanamaz.</p>
+                                                <p>
+                                                    *Universal Declaration of Human Rights/Declaration Üniverselle des
+                                                    Droits de l’Homme. Birleşmiş Milletler Genel Kurulu’nun 10 Aralık
+                                                    1948
+                                                    tarihli ve 217 A (III) sayılı kararıyla benimsendi ve ilan edildi.
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Kapat</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Human Rights Violations -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                İnsan Hakları İhlalleri
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Dünya çapında birçok yer, insan hakları ihlalleri ile mücadele ediyor. Savaşlar, devlet
+                                baskıları, ayrımcılık ve çevresel faktörler, bu ihlalleri tetikleyen ana sebeplerdir.
+                                <ul>
+                                    <li><strong>Savaş ve Çatışmalarda:</strong> Ukrayna ve Myanmar gibi savaş
+                                        bölgelerinde sivillere yönelik ciddi hak ihlalleri yaşanıyor.</li>
+                                    <li><strong>Devlet Tarafından Yapılan İhlaller:</strong> Çin ve Rusya’daki otoriter
+                                        rejimler, muhaliflere yönelik insan hakları ihlalleriyle tanınıyor.</li>
+                                </ul>
+                                İran’daki başörtüsü yasakları ve Afganistan’daki kadınların eğitim haklarının
+                                engellenmesi, ciddi ihlaller arasındadır.
+                                Güncel İnsan Hakları İhlalleri ile ilgili interaktif haritayı keşfedin!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Human Rights Defenders -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                İnsan Hakları Savunucuları
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                İnsan hakları savunucuları, adaletin sağlanmasında kritik bir rol oynamaktadır.
+                                Aktivistler, avukatlar, gazeteciler ve sivil toplum kuruluşları, dünyada adaletin
+                                yayılması için mücadele eder.
+                                <ul>
+                                    <li><strong>Riskler ve Zorluklar:</strong> Birçok insan hakları savunucusu,
+                                        tehlikeli şartlar altında çalışıyor; gözaltına alınma, işkence ve suikastlar
+                                        gibi risklerle karşı karşıya kalabiliyorlar.</li>
+                                    <li><strong>Öne Çıkan Savunucular:</strong> Greta Thunberg, Malala Yousafzai gibi
+                                        dünya çapında etkili isimler, insan hakları mücadelesine büyük katkılar
+                                        sağlamıştır.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Card -->
+        <section class="section-card">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card" style="width: 100%; background-color: #dfe1e0;">
+                            <img src="image/7699006-sd_506_960_25fps.gif"
+                                style="width: 100%; height: 250px; object-fit: cover;" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    Kadın Hakları</h5>
+                                <p class="card-text" style="text-align: start;">Kadın hakları, kadınların toplumsal,
+                                    ekonomik, siyasi ve yasal alanlarda erkeklerle eşit haklara sahip olmasını savunan
+                                    ve bu hakların korunmasını..</p>
+                                <a href="kadin-haklari.html" class="btn btn-primary"
+                                    style="background-color: #3f6084; border: none;">Devamını Oku..</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card" style="width: 100%; background-color: #dfe1e0;">
+                            <img src="image/yasam-baslik.jpeg" style="width: 100%; height: 250px; object-fit: cover;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    Yaşama Hakkı</h5>
+                                <p class="card-text" style="text-align: start;">Türkiye'de yaşam hakları, Anayasa ve
+                                    uluslararası sözleşmelerle güvence altına alınmıştır. İşte Türkiye'de yaşam
+                                    haklarının temel durumu..
+                                </p>
+                                <a href="yasam-hakki.html" class="btn btn-primary"
+                                    style="background-color: #3f6084; border: none;">Devamını Oku..</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="card" style="width: 100%; background-color: #dfe1e0;">
+                            <img src="image/video-cocuk1.gif" style="width: 100%; height: 250px; object-fit: cover;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    Çocuk Hakları</h5>
+                                <p class="card-text" style="text-align: start;">Tüm çocukların sahip olduğu temel hak ve
+                                    özgürlükleri ifade eder. Bu haklar, çocukların fiziksel, zihinsel, duygusal ve
+                                    sosyal gelişimlerini..</p>
+                                <a href="cocuk-haklari.html" class="btn btn-primary"
+                                    style="background-color: #3f6084; border: none;">Devamını Oku..</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section>
+            <div class="container mt-5">
+                <h2 class="text-center mb-4"
+                    style="color: #030e2b; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                    Öne Çıkan Savunucular</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-card" style="background-color: #dfe1e0;">
+                                <img src="image/im2age.png" alt="User 1">
+                                <h5>Jaylen Arnold</h5>
+                                <p>"Çocuğunuzun zorba oldugunu gösteren uyarı ısaretlerını bilin."</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card" style="background-color: #dfe1e0;">
+                                <img src="image/idmage.png" alt="User 2">
+                                <h5>Divina Maloum</h5>
+                                <p>"O barış için bir değişim yaratıcısıdır."</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card" style="background-color: #dfe1e0;">
+                                <img src="image/ima5ge.png" alt="User 3">
+                                <h5>Marley Dias</h5>
+                                <p>"Hayal kırıklığı yenilikçi ve faydalı bir fikrin gelişmesine yol açabilecek bir
+                                    yakıttır."</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card" style="background-color: #dfe1e0; padding-bottom: 1px;">
+                                <img src="image/image copy.png" alt="User 4">
+                                <h5>Greta Thunberg</h5>
+                                <p>"Çocuklarınızı her şeyden çok sevdiğinizi söylüyorsunuz, ama yine de onların
+                                    gözlerinin önünde geleceklerini çalıyorsunuz."</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card" style="background-color: #dfe1e0;">
+                                <img src="image/imag1e.png" alt="User 4">
+                                <h5>Malala Yousafzai</h5>
+                                <p>"Bir çocuk, bir öğretmen, bir kitap, bir kalem dünyayı değiştirebilir."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- place footer here -->
+    <footer style="background-color: #e3edef; color: #00091f; position: relative; padding-top: 20px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4" style="font-size: 1.2rem;">
+                    <h5 style="padding-left: 3rem;">Bize Ulaşın!</h5> <br>
+                    <p class="card-text"><i class="fa-solid fa-phone"></i> +90 312 581 39 60</p>
+                    <p class="card-text"><i class="fas fa-fax"></i> +90 312 310-2416</p>
+                    <p class="card-text"><i class="fa-solid fa-envelope"></i> ihddtr@dernek.org</p>
+                    <div class="row justify-content-start">
+                        <p><i class="fa-solid fa-location-dot"></i> Devlet, Atatürk Blv No:153, 06543 Çankaya/Ankara</p>
+                    </div>
+                </div>
+                <div class="col-md-4" style="font-size: 1.2rem;">
+                    <div class="p-0 m-0">
+                        <div>
+                            <img src="image/slogan.png" style="width: 200px; height:230px; margin-top: 2rem;" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card footer-card p-4 shadow-lg border-0 rounded"
+                        style="width: 100%; max-width: 350px; background: linear-gradient(to bottom, #00091f, #2a5298); color: white;">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-hands-holding-child" style="color: white;"></i>
+                            <h4 class="card-title mb-4"> Gönüllü Ol</h4>
+                            <form id="newsletterForm">
+                                <div class="form">
+                                    <input id="newsletter1" type="email" class="form-control border-0 shadow-sm"
+                                        placeholder="Email Giriniz:" style="height: 50px; font-size: 15px;" required>
+                                </div>
+                                <button class="btn btn-light text-dark fw-bold rounded mt-2 " type="submit"
+                                    style="height: 45px; font-size: 16px; padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 5px;margin-left: 3.5rem;">
+                                    <img src="image/aboneol.jpeg"
+                                        style="max-height: 100%; max-width: 100%; border-radius: 5px;">
+                                </button>
+                                <div id="error-message" class="text-danger mt-2" style="display: none;">Lütfen geçerli
+                                    bir e-posta adresi girin.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+        <footer class="fixed" style="background-color: #e3edef;">
+            <div class="d-flex flex-column flex-sm-row justify-content-between pt-3 me-4 ms-4">
+                <p>© 2025 İHDD Tüm Hakları Saklıdır.</p>
+                <div class="d-flex align-items-center social-container" style="gap: 16px;">
+                    <a href="#" class="social-link">
+                        <span class="social-text">Instagram</span>
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="social-text">Facebook</span>
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <span class="social-text">Twitter</span>
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Slider Card 
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1, // Tek slayt gösterimi (mobil için)
+            spaceBetween: 20, // Kartlar arası mesafe
+            loop: true, // Sonsuz döngü
+            effect: 'slide', // Yana kayma efekti
+            autoplay: {
+                delay: 3000, // 3 saniye sonra otomatik geçiş
+                disableOnInteraction: false, // Kullanıcı müdahale etse de devam et
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2, // Tablet için 2 kart göster
+                },
+                1024: {
+                    slidesPerView: 3, // Masaüstü için 3 kart göster
+                }
+            }
+        });
+
+        // FOOTER ABONE OL
+        document.getElementById('newsletterForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var emailInput = document.getElementById('newsletter1');
+            var errorMessage = document.getElementById('error-message');
+
+            if (!emailInput.value.trim()) {
+                errorMessage.style.display = 'block';
+                emailInput.classList.add('is-invalid');
+            } else {
+                errorMessage.style.display = 'none';
+                emailInput.classList.remove('is-invalid');
+                alert('Abone olduğunuz için teşekkürler!');
+                emailInput.value = ''; // Formu sıfırla
+            }
+        });
+
+        // Navbar
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const brandText = document.querySelector('.navbar-brand span');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = '#ffffff'; // Arka plan beyaz
+                navbar.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.2)'; // Hafif gölge
+                navLinks.forEach(link => link.style.color = '#00091f'); // Yazı rengi koyu mavi
+                brandText.style.color = '#00091f';
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.0)'; // Şeffaf siyah
+                navbar.style.boxShadow = 'none';
+                navLinks.forEach(link => link.style.color = 'black'); // Yazı rengi beyaz
+                brandText.style.color = 'black';
+            }
+        });
+        // Dark Mode
+        document.getElementById("darkModeToggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+
+            const navbar = document.getElementById("navbar");
+            navbar.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.removeItem("darkMode");
+            }
+        });
+
+        // localStorage
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem("darkMode") === "enabled") {
+                document.body.classList.add("dark-mode");
+                const navbar = document.getElementById("navbar");
+                navbar.classList.add("dark-mode");
+            }
+        });
+    </script>
+</body>
+
+</html>
