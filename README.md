@@ -43,6 +43,7 @@ Linkedln: https://www.linkedin.com/in/kurularibrahim09/
 📧Yusuf Nergiz: nergizzysf@gmail.com
 Linkedln: https://www.linkedin.com/in/yusuf-nergiz-551b00345/
 
+🌐Web Site Linki: https://ihddtr.netlify.app/
 Ekran Görüntüleri:
 
 ![alt text](<image/Ekran Resmi 2025-02-03 14.05.57.png>)
